@@ -3,7 +3,8 @@
 import { useEffect, useState } from "react";
 import { Command } from "cmdk";
 import { useRouter } from "next/navigation";
-import { Search as SearchIcon } from "lucide-react";
+import { Search as SearchIcon, X as XIcon } from "lucide-react";
+import { DialogTitle } from "@radix-ui/react-dialog";
 
 export interface SearchPost {
     title: string;
@@ -51,13 +52,28 @@ export function Search({ posts }: { posts: SearchPost[] }) {
                 open={open}
                 onOpenChange={setOpen}
                 label="Global Command Menu"
-                className="fixed inset-0 z-[100] flex items-start justify-center pt-[15vh] px-4 sm:px-0 bg-bg-primary/80 backdrop-blur-sm"
+                className="fixed inset-0 z-[100] flex items-start justify-center pt-[15vh] px-4 sm:px-0 bg-black/60 transition-opacity"
+                onClick={() => setOpen(false)}
             >
-                <div className="w-full max-w-xl overflow-hidden rounded-xl border border-border bg-bg-primary shadow-2xl">
-                    <Command.Input
-                        placeholder="Search posts..."
-                        className="w-full border-b border-border bg-transparent px-4 py-4 text-base outline-none placeholder:text-text-muted"
-                    />
+                <div
+                    className="w-full max-w-xl overflow-hidden rounded-xl bg-bg border border-border/50 shadow-sm ring-1 ring-border/50"
+                    onClick={(e) => e.stopPropagation()}
+                >
+                    <DialogTitle className="sr-only">Search Blog Posts</DialogTitle>
+                    <div className="relative flex items-center border-b border-border">
+                        <SearchIcon className="absolute left-4 w-4 h-4 text-text-muted" />
+                        <Command.Input
+                            placeholder="Search posts..."
+                            className="w-full bg-bg py-4 pl-11 pr-12 text-base outline-none placeholder:text-text-muted"
+                        />
+                        <button
+                            onClick={() => setOpen(false)}
+                            className="absolute right-3 p-1 rounded-md text-text-muted hover:text-text hover:bg-bg-secondary transition-colors"
+                            aria-label="Close search"
+                        >
+                            <XIcon className="w-4 h-4" />
+                        </button>
+                    </div>
                     <Command.List className="max-h-[300px] overflow-y-auto p-2">
                         <Command.Empty className="py-6 text-center text-sm text-text-muted">
                             No results found.
