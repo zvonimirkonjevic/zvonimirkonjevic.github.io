@@ -1,0 +1,66 @@
+---
+title: "Building a Modern Blog with Next.js and GSAP"
+date: "2026-03-01"
+description: "How I built this blog from scratch using Next.js 15, Tailwind CSS, and GSAP animations — combining the cinematic feel of award-winning sites with a content-first approach."
+tags: ["Next.js", "React", "GSAP"]
+---
+
+Every developer needs a personal space on the internet. Not just a portfolio with a list of projects, but a true *home* — a place that reflects how you think and what you care about.
+
+## The Design Philosophy
+
+When I set out to build this blog, I drew inspiration from two very different sources:
+
+- **Lightweight.info** — A luxury cycling brand site with bold typography, cinematic scroll animations, and a dark, precision-engineered aesthetic
+- **Philschmid.de** — A developer blog with clean, minimal design focused purely on content readability
+
+The challenge was to merge these two worlds: the *visual drama* of a brand showcase with the *functional clarity* of a technical blog.
+
+## Technical Stack
+
+Here's what powers this site under the hood:
+
+```typescript
+const stack = {
+  framework: "Next.js 15",
+  styling: "Tailwind CSS 4",
+  animations: "GSAP + ScrollTrigger",
+  content: "MDX with rehype-pretty-code",
+  deployment: "GitHub Pages (static export)",
+};
+```
+
+### Why Static Export?
+
+For a blog, static generation makes perfect sense. Every page is pre-rendered at build time, resulting in:
+
+- **Instant load times** — No server-side rendering overhead
+- **Zero hosting costs** — GitHub Pages serves static files for free
+- **Maximum reliability** — No server to go down
+
+> The best infrastructure is the one you don't have to think about.
+
+## Animation Details
+
+The hero section uses GSAP's timeline feature for a staggered text reveal:
+
+```typescript
+const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
+
+tl.from(line1, { y: 120, opacity: 0, duration: 1.2 })
+  .from(line2, { y: 120, opacity: 0, duration: 1.2 }, "-=0.9")
+  .from(line3, { y: 120, opacity: 0, duration: 1.2 }, "-=0.9");
+```
+
+The `-=0.9` offset creates an overlapping stagger effect — each line begins animating before the previous one finishes, creating a fluid cascade.
+
+## What's Next
+
+This is just the beginning. Upcoming features include:
+
+1. **Search functionality** with `Cmd+K` keyboard shortcut
+2. **RSS feed** generation at build time
+3. **Reading progress** indicator
+4. **Table of contents** for longer articles
+
+Stay tuned for more posts about the technical decisions behind this blog.
