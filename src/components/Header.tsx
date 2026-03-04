@@ -6,7 +6,7 @@ import { ThemeToggle } from "./ThemeToggle";
 export default function Header() {
     return (
         <header className="border-b border-border">
-            <nav className="max-w-4xl mx-auto px-6 md:px-8 h-14 flex items-center justify-between">
+            <nav className="w-full px-8 md:px-12 h-14 flex items-center justify-between">
                 <Link
                     href="/"
                     className="text-sm font-medium tracking-wider uppercase text-text hover:opacity-60 transition-opacity duration-200"

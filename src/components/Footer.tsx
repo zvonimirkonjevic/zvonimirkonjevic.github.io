@@ -1,7 +1,7 @@
 export default function Footer() {
     return (
         <footer className="mt-auto py-8 border-t border-border">
-            <div className="max-w-4xl mx-auto px-6 md:px-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div className="w-full px-8 md:px-12 flex flex-col sm:flex-row justify-between items-center gap-4">
                 <p className="text-sm text-text-secondary">
                     © {new Date().getFullYear()} Zvonimir Konjević
                 </p>
