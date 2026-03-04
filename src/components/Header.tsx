@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { ThemeToggle } from "./ThemeToggle";
 
 export default function Header() {
     return (
@@ -26,6 +27,9 @@ export default function Header() {
                             {link.label}
                         </Link>
                     ))}
+                    <div className="md:ml-2">
+                        <ThemeToggle />
+                    </div>
                 </div>
             </nav>
         </header>

@@ -8,6 +8,14 @@
   --border: #e5e7eb;
 }
 
+.dark {
+  --bg: #111111;
+  --text: #f3f4f6;
+  --text-secondary: #9ca3af;
+  --text-muted: #6b7280;
+  --border: #333333;
+}
+
 @theme inline {
   --color-bg: var(--bg);
   --color-text: var(--text);
@@ -108,14 +116,14 @@ body {
 }
 
 .prose code {
-  background: #f3f4f6;
+  background: var(--border);
   padding: 0.15em 0.35em;
   border-radius: 3px;
   font-size: 0.875em;
 }
 
 .prose pre {
-  background: #f9fafb;
+  background: var(--border);
   border: 1px solid var(--border);
   border-radius: 6px;
   padding: 1.25rem;
@@ -161,7 +169,7 @@ body {
 
 /* Code block title */
 [data-rehype-pretty-code-title] {
-  background: #f3f4f6;
+  background: var(--border);
   border: 1px solid var(--border);
   border-bottom: none;
   border-radius: 6px 6px 0 0;
@@ -174,4 +182,15 @@ body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   margin-top: 0;
+}
+
+/* Dual theme support for code blocks */
+html.dark [data-theme="light"],
+html.dark [data-theme="light"] * {
+  display: none !important;
+}
+
+html:not(.dark) [data-theme="dark"],
+html:not(.dark) [data-theme="dark"] * {
+  display: none !important;
 }

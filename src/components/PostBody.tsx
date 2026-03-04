@@ -83,7 +83,10 @@ export default function PostBody({ content }: PostBodyProps) {
                             [
                                 rehypePrettyCode,
                                 {
-                                    theme: "github-light",
+                                    theme: {
+                                        light: "github-light",
+                                        dark: "github-dark-dimmed",
+                                    },
                                     keepBackground: false,
                                 },
                             ],
