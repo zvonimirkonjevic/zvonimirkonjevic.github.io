@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import { ThemeToggle } from "./ThemeToggle";
+import { Search, SearchPost } from "./Search";
 
-export default function Header() {
+export default function Header({ searchPosts = [] }: { searchPosts?: SearchPost[] }) {
     return (
         <header className="border-b border-border">
             <nav className="w-full px-8 md:px-12 h-14 flex items-center justify-between">
@@ -27,7 +28,8 @@ export default function Header() {
                             {link.label}
                         </Link>
                     ))}
-                    <div className="md:ml-2">
+                    <div className="md:ml-2 flex items-center gap-4">
+                        <Search posts={searchPosts} />
                         <ThemeToggle />
                     </div>
                 </div>
