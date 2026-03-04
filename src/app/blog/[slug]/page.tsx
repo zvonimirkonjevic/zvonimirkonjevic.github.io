@@ -86,15 +86,6 @@ export default async function BlogPost({ params }: PageProps) {
                     {/* Post body */}
                     <PostBody content={post.content} />
 
-                    {/* Post footer */}
-                    <footer className="mt-16 pt-8 border-t border-border">
-                        <Link
-                            href="/"
-                            className="text-sm text-text-secondary hover:text-text transition-colors duration-200"
-                        >
-                            ← Back to all posts
-                        </Link>
-                    </footer>
                 </article>
 
                 {/* Desktop Side TOC */}
