@@ -43,6 +43,11 @@ body {
   color: #ffffff;
 }
 
+.dark ::selection {
+  background: #f3f4f6;
+  color: #111111;
+}
+
 /* Prose / Article styles */
 .prose {
   max-width: 68ch;
