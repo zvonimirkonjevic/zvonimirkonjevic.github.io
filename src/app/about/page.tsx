@@ -36,16 +36,6 @@ export default function About() {
                     </h2>
                     <p className="text-text-secondary text-[0.9375rem] mb-5">
                         A selection of tools, frameworks, and languages I regularly work with.
-                        For a broader view, check out my{" "}
-                        <a
-                            href="https://github.com/zvonimirkonjevic"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-text underline underline-offset-2 decoration-text-muted hover:decoration-text transition-colors duration-200"
-                        >
-                            GitHub
-                        </a>
-                        .
                     </p>
 
                     <div className="space-y-3 text-[0.9375rem]">
