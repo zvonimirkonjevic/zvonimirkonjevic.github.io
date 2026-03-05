@@ -9,23 +9,26 @@ export default function About() {
                 {/* Bio paragraphs */}
                 <div className="space-y-5 text-[1.0625rem] leading-[1.85] mb-14">
                     <p>
-                        Hi, I&apos;m <strong className="font-semibold">Zvonimir Konjević</strong> — a
-                        software engineer passionate about building elegant, performant
-                        solutions to complex problems.
+                        Hello, my name is Zvonimir. I am a <strong className="font-semibold">Machine Learning Engineer</strong> at{" "}
+                        <strong className="font-semibold">Intelligentia</strong> in Osijek, Croatia, where I build
+                        managed LLM chains and AI agents for natural language processing.
                     </p>
                     <p>
-                        I specialize in full-stack development with a focus on modern web
-                        technologies, cloud architecture, and developer experience.
-                        Currently exploring the intersection of AI and software engineering.
+                        At Intelligentia, I design and build LangGraph-based agents that translate natural language
+                        into structured database queries. I also lead fine-tuning efforts for domain-specific LLMs
+                        and oversee data pipelines for agents that automate document processing — from annotation
+                        through to production deployment.
                     </p>
                     <p>
-                        This blog is where I share my thoughts, experiments, and lessons
-                        learned along the way. Topics range from TypeScript and React to
-                        system design and machine learning.
+                        Before Intelligentia, I worked at Vegvisir on Computer Vision solutions. Outside of work
+                        I build full-stack AI web applications, end-to-end ML pipelines on AWS, and have shipped
+                        projects across the stack — from mobile apps in Kotlin and Swift to cloud infrastructure
+                        with Terraform and SageMaker.
                     </p>
                     <p>
-                        When I&apos;m not coding, you&apos;ll find me exploring new technologies,
-                        contributing to open source, or enjoying the outdoors.
+                        I am pursuing an M.Eng. in Computer Science at FERIT Osijek (B.S. 2025) and hold
+                        AWS certifications as Solutions Architect, Developer, and Cloud Practitioner.
+                        On this blog I share what I build and learn — mostly around AI agents, LLMs, and cloud engineering.
                     </p>
                 </div>
 
@@ -40,11 +43,11 @@ export default function About() {
 
                     <div className="space-y-3 text-[0.9375rem]">
                         <div className="flex gap-3">
-                            <span className="shrink-0">🌐</span>
+                            <span className="shrink-0">🤖</span>
                             <div>
-                                <span className="font-semibold text-text">Frontend</span>
+                                <span className="font-semibold text-text">AI / LLMs</span>
                                 <span className="text-text-secondary">
-                                    {" "}Next.js, React, TypeScript, Tailwind CSS, React Query.
+                                    {" "}LangChain, LangGraph, LangSmith, OpenAI, Gemini, Claude, RAG, fine-tuning.
                                 </span>
                             </div>
                         </div>
@@ -53,7 +56,7 @@ export default function About() {
                             <div>
                                 <span className="font-semibold text-text">Backend</span>
                                 <span className="text-text-secondary">
-                                    {" "}Python, FastAPI, Supabase, PostgreSQL, Stripe, Streamlit.
+                                    {" "}Python, FastAPI, Streamlit, PostgreSQL, ClickHouse, SQL.
                                 </span>
                             </div>
                         </div>
@@ -62,16 +65,25 @@ export default function About() {
                             <div>
                                 <span className="font-semibold text-text">Cloud &amp; Infra</span>
                                 <span className="text-text-secondary">
-                                    {" "}AWS, Terraform, Docker.
+                                    {" "}AWS (SageMaker, Lambda, ECS, API Gateway), Terraform, Docker.
                                 </span>
                             </div>
                         </div>
                         <div className="flex gap-3">
-                            <span className="shrink-0">🤖</span>
+                            <span className="shrink-0">🌐</span>
                             <div>
-                                <span className="font-semibold text-text">AI / ML</span>
+                                <span className="font-semibold text-text">Frontend</span>
                                 <span className="text-text-secondary">
-                                    {" "}LangChain, Gemini, OpenAI, Claude, XGBoost, mechanistic interpretability.
+                                    {" "}Next.js, React, TypeScript, Tailwind CSS.
+                                </span>
+                            </div>
+                        </div>
+                        <div className="flex gap-3">
+                            <span className="shrink-0">📱</span>
+                            <div>
+                                <span className="font-semibold text-text">Mobile</span>
+                                <span className="text-text-secondary">
+                                    {" "}Kotlin, Jetpack Compose (Android), Swift (iOS).
                                 </span>
                             </div>
                         </div>
@@ -81,3 +93,4 @@ export default function About() {
         </div>
     );
 }
+
