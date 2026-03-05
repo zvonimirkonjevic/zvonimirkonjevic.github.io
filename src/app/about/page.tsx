@@ -14,10 +14,12 @@ export default function About() {
                         managed LLM chains and AI agents for natural language processing.
                     </p>
                     <p>
-                        At Intelligentia, I design and build LangGraph-based agents that translate natural language
-                        into structured database queries. I also lead fine-tuning efforts for domain-specific LLMs
-                        and oversee data pipelines for agents that automate document processing — from annotation
-                        through to production deployment.
+                        At Intelligentia, I design and build LLM-based systems and AI agents that are
+                        deployed and actively used in production environments. My work involves building
+                        deep agents that process user files, answer queries backed by processed user data,
+                        and translate natural language into structured database queries using LangGraph.
+                        I also lead fine-tuning efforts for domain-specific LLMs and oversee data pipelines
+                        for agents that automate document processing.
                     </p>
                     <p>
                         Before Intelligentia, I worked at Vegvisir on Computer Vision solutions. Outside of work
@@ -43,11 +45,11 @@ export default function About() {
 
                     <div className="space-y-3 text-[0.9375rem]">
                         <div className="flex gap-3">
-                            <span className="shrink-0">🤖</span>
+                            <span className="shrink-0">🌐</span>
                             <div>
-                                <span className="font-semibold text-text">AI / LLMs</span>
+                                <span className="font-semibold text-text">Frontend</span>
                                 <span className="text-text-secondary">
-                                    {" "}LangChain, LangGraph, LangSmith, OpenAI, Gemini, Claude, RAG, fine-tuning.
+                                    {" "}Next.js, React, TypeScript, Tailwind CSS.
                                 </span>
                             </div>
                         </div>
@@ -61,32 +63,24 @@ export default function About() {
                             </div>
                         </div>
                         <div className="flex gap-3">
+                            <span className="shrink-0">🤖</span>
+                            <div>
+                                <span className="font-semibold text-text">AI / LLMs</span>
+                                <span className="text-text-secondary">
+                                    {" "}LangChain, LangGraph, LangSmith, OpenAI, Gemini, Claude, RAG, fine-tuning.
+                                </span>
+                            </div>
+                        </div>
+                        <div className="flex gap-3">
                             <span className="shrink-0">☁️</span>
                             <div>
                                 <span className="font-semibold text-text">Cloud &amp; Infra</span>
                                 <span className="text-text-secondary">
-                                    {" "}AWS (SageMaker, Lambda, ECS, API Gateway), Terraform, Docker.
+                                    {" "}AWS, Terraform, Docker.
                                 </span>
                             </div>
                         </div>
-                        <div className="flex gap-3">
-                            <span className="shrink-0">🌐</span>
-                            <div>
-                                <span className="font-semibold text-text">Frontend</span>
-                                <span className="text-text-secondary">
-                                    {" "}Next.js, React, TypeScript, Tailwind CSS.
-                                </span>
-                            </div>
-                        </div>
-                        <div className="flex gap-3">
-                            <span className="shrink-0">📱</span>
-                            <div>
-                                <span className="font-semibold text-text">Mobile</span>
-                                <span className="text-text-secondary">
-                                    {" "}Kotlin, Jetpack Compose (Android), Swift (iOS).
-                                </span>
-                            </div>
-                        </div>
+
                     </div>
                 </section>
             </div>
