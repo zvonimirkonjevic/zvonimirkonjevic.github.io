@@ -72,7 +72,7 @@ export default function About() {
                             <div>
                                 <span className="font-semibold text-text">Cloud &amp; Infra</span>
                                 <span className="text-text-secondary">
-                                    {" "}AWS (SageMaker, ECS Fargate, Lambda, API Gateway), Terraform, Docker.
+                                    {" "}AWS, Terraform, Docker.
                                 </span>
                             </div>
                         </div>
