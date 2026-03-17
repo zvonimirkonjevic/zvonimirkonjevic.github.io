@@ -1,63 +1,28 @@
 import Link from "next/link";
 import { PostMeta } from "@/lib/posts";
+import { FileText } from "lucide-react";
 
 interface BlogListProps {
     posts: PostMeta[];
 }
 
 export default function BlogList({ posts }: BlogListProps) {
-    // Group posts by "Year Month" (e.g. "2026 March")
-    const grouped = posts.reduce<Record<string, PostMeta[]>>((acc, post) => {
-        const d = new Date(post.date);
-        const key = `${d.getFullYear()} ${d.toLocaleDateString("en-US", { month: "long" })}`;
-        if (!acc[key]) acc[key] = [];
-        acc[key].push(post);
-        return acc;
-    }, {});
-
-    const groups = Object.entries(grouped);
-
     return (
         <section>
-            {groups.map(([group, groupPosts]) => (
-                <div
-                    key={group}
-                    className="grid grid-cols-1 md:grid-cols-[180px_1fr] gap-x-12 gap-y-2 py-8 first:pt-0"
-                >
-                    {/* Month-Year label */}
-                    <div className="text-sm text-text-secondary font-medium pt-1 md:pt-0.5">
-                        {group}
-                    </div>
-
-                    {/* Posts */}
-                    <div className="space-y-6">
-                        {groupPosts.map((post) => (
-                            <Link
-                                key={post.slug}
-                                href={`/blog/${post.slug}`}
-                                className="block group"
-                            >
-                                <h3 className="text-base font-semibold text-text group-hover:underline underline-offset-2 decoration-text-muted transition-all duration-200">
-                                    {post.title}
-                                </h3>
-                                <p className="text-sm text-text-secondary mt-1">
-                                    {new Date(post.date).toLocaleDateString("en-US", {
-                                        month: "long",
-                                        day: "numeric",
-                                        year: "numeric",
-                                    })}
-                                    {post.tags.length > 0 && (
-                                        <>
-                                            {" — "}
-                                            {post.tags.join(", ")}
-                                        </>
-                                    )}
-                                </p>
-                            </Link>
-                        ))}
-                    </div>
-                </div>
-            ))}
+            <div className="space-y-1">
+                {posts.map((post) => (
+                    <Link
+                        key={post.slug}
+                        href={`/blog/${post.slug}`}
+                        className="flex items-center gap-3 group -mx-3 px-3 py-2 rounded-lg transition-all duration-300 ease-out hover:bg-gray-100 dark:hover:bg-white/[0.05] hover:translate-x-1"
+                    >
+                        <FileText className="w-4 h-4 text-text-muted transition-colors duration-300 shrink-0 group-hover:text-text" />
+                        <h3 className="text-[15px] font-medium text-text-secondary transition-colors duration-300 truncate group-hover:text-text">
+                            {post.title}
+                        </h3>
+                    </Link>
+                ))}
+            </div>
         </section>
     );
 }

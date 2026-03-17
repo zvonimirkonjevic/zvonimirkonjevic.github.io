@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Inter } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { ThemeProvider } from "@/components/ThemeProvider";
@@ -12,20 +12,14 @@ const inter = Inter({
   display: "swap",
 });
 
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
-  subsets: ["latin"],
-  display: "swap",
-});
-
 export const metadata: Metadata = {
-  title: "Zvonimir Konjević",
+  title: "zvonimir konjevic blog",
   description:
-    "Personal blog of Zvonimir Konjević. Thoughts on software engineering, technology, and building things.",
+    "Personal blog of Zvonimir Konjevic. Thoughts on software engineering, technology, and building things.",
   openGraph: {
-    title: "Zvonimir Konjević",
+    title: "zvonimir konjevic blog",
     description:
-      "Personal blog of Zvonimir Konjević. Thoughts on software engineering, technology, and building things.",
+      "Personal blog of Zvonimir Konjevic. Thoughts on software engineering, technology, and building things.",
     type: "website",
   },
 };
@@ -42,7 +36,7 @@ export default function RootLayout({
   }));
 
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${inter.variable}`} suppressHydrationWarning>
       <body className="antialiased min-h-screen flex flex-col">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Header searchPosts={posts} />

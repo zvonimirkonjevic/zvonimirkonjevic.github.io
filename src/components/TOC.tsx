@@ -28,6 +28,7 @@ export function TOC({ source }: { source: string }) {
             return { id, text, level };
         });
 
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setHeadings(tocItems);
 
         // Set up intersection observer to highlight active heading
@@ -100,6 +101,7 @@ export function SideTOC({ source }: { source: string }) {
             return { id, text: text.trim(), level };
         });
 
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setHeadings(tocItems);
 
         const headingElements = tocItems.map(item => document.getElementById(item.id)).filter(Boolean);

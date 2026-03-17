@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     if (!post) return {};
 
     return {
-        title: `${post.title} — Zvonimir Konjević`,
+        title: `${post.title} — zvonimir konjevic blog`,
         description: post.description,
         openGraph: {
             title: post.title,
@@ -46,13 +46,6 @@ export default async function BlogPost({ params }: PageProps) {
                 <article className="pt-12 md:pt-16 flex-1 min-w-0 max-w-3xl">
                     {/* Post header */}
                     <header className="mb-10 md:mb-12">
-                        <Link
-                            href="/"
-                            className="inline-block text-sm text-text-secondary hover:text-text transition-colors duration-200 mb-8"
-                        >
-                            ← Back
-                        </Link>
-
                         <h1 className="font-heading text-3xl md:text-4xl font-normal tracking-tight leading-[1.15] mb-4">
                             {post.title}
                         </h1>

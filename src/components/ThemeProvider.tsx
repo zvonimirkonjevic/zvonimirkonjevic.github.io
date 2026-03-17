@@ -10,7 +10,7 @@ function FaviconSwitcher() {
         if (!resolvedTheme) return;
 
         const isDark = resolvedTheme === "dark";
-        const iconPath = isDark ? "/icon-dark.png" : "/icon-light.png";
+        const iconPath = isDark ? "/icon-dark.svg" : "/icon-light.svg";
 
         let link = document.querySelector("link[rel~='icon']") as HTMLLinkElement;
         if (!link) {

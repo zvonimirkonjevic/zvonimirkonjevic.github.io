@@ -8,19 +8,19 @@ export async function GET() {
     const site_url = "https://zvonimirkonjevic.github.io/"; // Replace with true deployed URL or logic
 
     const feedOptions = {
-        title: "Zvonimir Konjević Blog",
+        title: "zvonimir konjevic blog",
         description: "Thoughts on software engineering, technology, and building things.",
         id: site_url,
         link: site_url,
         image: `${site_url}favicon.ico`,
         favicon: `${site_url}favicon.ico`,
-        copyright: `All rights reserved ${new Date().getFullYear()}, Zvonimir Konjević`,
+        copyright: `All rights reserved ${new Date().getFullYear()}, Zvonimir Konjevic`,
         generator: "Feed for Node.js",
         feedLinks: {
             rss2: `${site_url}feed.xml`,
         },
         author: {
-            name: "Zvonimir Konjević",
+            name: "Zvonimir Konjevic",
             email: "zvonimirk@example.com", // Adjust as necessary
             link: site_url,
         },
