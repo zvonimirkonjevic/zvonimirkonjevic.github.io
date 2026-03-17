@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
   <rect width="512" height="512" rx="100" fill="#ffffff" />
-  <text x="50%" y="50%" fill="#111111" font-family="Inter, -apple-system, system-ui, sans-serif" font-weight="700" font-size="280" text-anchor="middle" dominant-baseline="central" letter-spacing="-10">
+  <text x="50%" y="50%" fill="#111111" font-family="Inter, -apple-system, system-ui, sans-serif" font-weight="700" font-size="320" text-anchor="middle" dominant-baseline="central" letter-spacing="-10">
     zk
   </text>
 </svg>
