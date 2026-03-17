@@ -13,7 +13,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "zvonimir konjevic blog",
+  title: "hi, i'm zvonimir konjevic! - zvonimir konjevic",
   description:
     "Personal blog of Zvonimir Konjevic. Thoughts on software engineering, technology, and building things.",
   openGraph: {
