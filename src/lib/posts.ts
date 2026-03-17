@@ -18,12 +18,19 @@ export interface Post extends PostMeta {
 
 const postsDirectory = path.join(process.cwd(), "content/posts");
 
+// Ensure the directory exists to prevent errors during build or dev
+if (!fs.existsSync(postsDirectory)) {
+    fs.mkdirSync(postsDirectory, { recursive: true });
+}
+
 export function getAllPosts(): PostMeta[] {
-    if (!fs.existsSync(postsDirectory)) return [];
+    try {
+        if (!fs.existsSync(postsDirectory)) return [];
 
-    const files = fs.readdirSync(postsDirectory).filter((f) => f.endsWith(".mdx"));
+        const files = fs.readdirSync(postsDirectory).filter((f) => f.endsWith(".mdx"));
+        if (files.length === 0) return [];
 
-    const posts = files.map((filename) => {
+        const posts = files.map((filename) => {
         const slug = filename.replace(/\.mdx$/, "");
         const filePath = path.join(postsDirectory, filename);
         const fileContent = fs.readFileSync(filePath, "utf-8");
@@ -40,36 +47,50 @@ export function getAllPosts(): PostMeta[] {
         };
     });
 
-    return posts.sort(
-        (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-    );
+        return posts.sort(
+            (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+        );
+    } catch (error) {
+        console.error("Error getting all posts:", error);
+        return [];
+    }
 }
 
 export function getPostBySlug(slug: string): Post | null {
-    const filePath = path.join(postsDirectory, `${slug}.mdx`);
+    try {
+        const filePath = path.join(postsDirectory, `${slug}.mdx`);
 
-    if (!fs.existsSync(filePath)) return null;
+        if (!fs.existsSync(filePath)) return null;
 
-    const fileContent = fs.readFileSync(filePath, "utf-8");
-    const { data, content } = matter(fileContent);
-    const stats = readingTime(content);
+        const fileContent = fs.readFileSync(filePath, "utf-8");
+        const { data, content } = matter(fileContent);
+        const stats = readingTime(content);
 
-    return {
-        slug,
-        title: data.title || slug,
-        date: data.date || new Date().toISOString(),
-        description: data.description || "",
-        tags: data.tags || [],
-        readingTime: stats.text,
-        content,
-    };
+        return {
+            slug,
+            title: data.title || slug,
+            date: data.date || new Date().toISOString(),
+            description: data.description || "",
+            tags: data.tags || [],
+            readingTime: stats.text,
+            content,
+        };
+    } catch (error) {
+        console.error(`Error getting post by slug ${slug}:`, error);
+        return null;
+    }
 }
 
 export function getAllSlugs(): string[] {
-    if (!fs.existsSync(postsDirectory)) return [];
+    try {
+        if (!fs.existsSync(postsDirectory)) return [];
 
-    return fs
-        .readdirSync(postsDirectory)
-        .filter((f) => f.endsWith(".mdx"))
-        .map((f) => f.replace(/\.mdx$/, ""));
+        return fs
+            .readdirSync(postsDirectory)
+            .filter((f) => f.endsWith(".mdx"))
+            .map((f) => f.replace(/\.mdx$/, ""));
+    } catch (error) {
+        console.error("Error getting all slugs:", error);
+        return [];
+    }
 }

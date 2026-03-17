@@ -12,6 +12,11 @@ interface PageProps {
 
 export async function generateStaticParams() {
     const slugs = getAllSlugs();
+    if (slugs.length === 0) {
+        // Return a placeholder to satisfy Next.js static export requirement
+        // when no posts exist. This path will be handled in the component.
+        return [{ slug: 'placeholder' }];
+    }
     return slugs.map((slug) => ({ slug }));
 }
 
@@ -34,6 +39,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function BlogPost({ params }: PageProps) {
     const { slug } = await params;
+    
+    // Handle the placeholder case or missing posts
+    if (slug === 'placeholder') notFound();
+    
     const post = getPostBySlug(slug);
 
     if (!post) notFound();
