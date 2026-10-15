@@ -1,28 +1,39 @@
 import Link from "next/link";
 import { PostMeta } from "@/lib/posts";
-import { FileText } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 interface BlogListProps {
     posts: PostMeta[];
+    revealOffset?: number;
 }
 
-export default function BlogList({ posts }: BlogListProps) {
+export default function BlogList({ posts, revealOffset = 0 }: BlogListProps) {
     return (
-        <section>
-            <div className="space-y-1">
-                {posts.map((post) => (
-                    <Link
-                        key={post.slug}
-                        href={`/blog/${post.slug}`}
-                        className="flex items-center gap-3 group -mx-3 px-3 py-2 rounded-lg transition-all duration-300 ease-out hover:bg-gray-100 dark:hover:bg-white/[0.05] hover:translate-x-1"
-                    >
-                        <FileText className="w-4 h-4 text-text-muted transition-colors duration-300 shrink-0 group-hover:text-text" />
-                        <h3 className="text-base font-medium text-text-secondary transition-colors duration-300 truncate group-hover:text-text">
-                            {post.title}
-                        </h3>
-                    </Link>
-                ))}
-            </div>
+        <section className="post-list">
+            {posts.map((post, index) => (
+                <Link
+                    key={post.slug}
+                    href={`/blog/${post.slug}`}
+                    className="post-item reveal group block py-3 transition-opacity duration-200 ease-out"
+                    style={{ "--reveal-i": revealOffset + index } as React.CSSProperties}
+                >
+                    <time dateTime={post.date} className="block font-mono text-xs text-text-muted group-hover:text-text-secondary transition-colors duration-200 mb-1">
+                        {new Date(post.date).toLocaleDateString("en-GB", {
+                            day: "2-digit",
+                            month: "short",
+                            year: "numeric",
+                            timeZone: "UTC",
+                        })}
+                    </time>
+                    <h3 className="text-base md:text-lg font-medium leading-snug">
+                        {post.title}
+                        <ArrowRight
+                            aria-hidden="true"
+                            className="inline-block w-4 h-4 ml-1.5 align-[-0.125em] opacity-0 -translate-x-1 transition-[opacity,translate] duration-200 ease-out group-hover:opacity-100 group-hover:translate-x-0"
+                        />
+                    </h3>
+                </Link>
+            ))}
         </section>
     );
 }

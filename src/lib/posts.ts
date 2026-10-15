@@ -10,6 +10,8 @@ export interface PostMeta {
     description: string;
     tags: string[];
     readingTime: string;
+    // Path under /public, e.g. "/images/my-post/cover.png"
+    cover?: string;
 }
 
 export interface Post extends PostMeta {
@@ -44,6 +46,7 @@ export function getAllPosts(): PostMeta[] {
             description: data.description || "",
             tags: data.tags || [],
             readingTime: stats.text,
+            cover: data.cover,
         };
     });
 
@@ -73,6 +76,7 @@ export function getPostBySlug(slug: string): Post | null {
             description: data.description || "",
             tags: data.tags || [],
             readingTime: stats.text,
+            cover: data.cover,
             content,
         };
     } catch (error) {

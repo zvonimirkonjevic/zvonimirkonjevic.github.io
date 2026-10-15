@@ -55,31 +55,53 @@ export default async function BlogPost({ params }: PageProps) {
                 <article className="pt-12 md:pt-16 flex-1 min-w-0 max-w-3xl">
                     {/* Post header */}
                     <header className="mb-10 md:mb-12">
-                        <h1 className="font-heading text-3xl md:text-4xl font-normal tracking-tight leading-[1.15] mb-4">
-                            {post.title}
-                        </h1>
-
-                        {post.description && (
-                            <p className="text-text-secondary text-lg leading-relaxed mb-4">
-                                {post.description}
-                            </p>
-                        )}
-
-                        <div className="text-sm text-text-secondary">
+                        <div className="reveal label font-mono text-xs mb-4" style={{ "--reveal-i": 0 } as React.CSSProperties}>
                             {new Date(post.date).toLocaleDateString("en-US", {
                                 year: "numeric",
                                 month: "long",
                                 day: "numeric",
+                                timeZone: "UTC",
                             })}
-                            {" — "}
+                            {" · "}
                             {post.readingTime}
-                            {post.tags.length > 0 && (
-                                <>
-                                    {" — "}
-                                    {post.tags.join(", ")}
-                                </>
-                            )}
                         </div>
+
+                        <h1
+                            className="reveal font-heading text-3xl md:text-4xl font-semibold tracking-tight leading-tight mb-5"
+                            style={{ "--reveal-i": 1 } as React.CSSProperties}
+                        >
+                            {post.title}
+                        </h1>
+
+                        {post.description && (
+                            <p
+                                className="reveal text-text-secondary text-base md:text-lg leading-relaxed mb-5 max-w-2xl"
+                                style={{ "--reveal-i": 2 } as React.CSSProperties}
+                            >
+                                {post.description}
+                            </p>
+                        )}
+
+                        {post.tags.length > 0 && (
+                            <div
+                                className="reveal flex flex-wrap gap-2 text-xs text-text-secondary"
+                                style={{ "--reveal-i": 3 } as React.CSSProperties}
+                            >
+                                {post.tags.map((tag) => (
+                                    <span key={tag} className="px-2.5 py-1 rounded-full bg-surface">{tag.toLowerCase()}</span>
+                                ))}
+                            </div>
+                        )}
+
+                        {post.cover && (
+                            <figure
+                                className="reveal mt-10 overflow-hidden rounded-2xl border border-border"
+                                style={{ "--reveal-i": 4 } as React.CSSProperties}
+                            >
+                                {/* eslint-disable-next-line @next/next/no-img-element */}
+                                <img src={post.cover} alt="" className="block aspect-video w-full object-cover" />
+                            </figure>
+                        )}
                     </header>
 
                     {/* Mobile inline TOC */}

@@ -20,12 +20,12 @@ export default function Header({ searchPosts = [] }: { searchPosts?: SearchPost[
                             <div className="flex items-center text-sm font-medium flex-1 min-w-0 pr-4">
                                 <Link
                                     href="/"
-                                    className="lowercase text-text -ml-2 px-2 py-1.5 rounded-md hover:bg-gray-100 dark:hover:bg-white/[0.06] transition-all duration-300 ease-out shrink-0"
+                                    className="lowercase text-text-secondary hover:text-text transition-colors duration-200 shrink-0"
                                 >
                                     zvonimir konjevic
                                 </Link>
-                                <span className="mx-1 text-text-muted shrink-0 font-light">/</span>
-                                <span className="lowercase text-text px-2 py-1.5 rounded-md cursor-default hover:bg-gray-100 dark:hover:bg-white/[0.06] transition-all duration-300 ease-out truncate max-w-[250px] md:max-w-md">
+                                <span className="mx-2 text-text-muted shrink-0 font-light">/</span>
+                                <span className="lowercase text-text cursor-default truncate max-w-[250px] md:max-w-md">
                                     {post ? post.title : slug}
                                 </span>
                             </div>
@@ -34,7 +34,7 @@ export default function Header({ searchPosts = [] }: { searchPosts?: SearchPost[
                 ) : (
                     <Link
                         href="/"
-                        className="text-sm font-medium lowercase text-text -ml-2 hover:bg-gray-100 dark:hover:bg-white/[0.06] rounded-md transition-all duration-300 ease-out shrink-0 px-2 py-1.5"
+                        className="text-sm font-medium lowercase text-text hover:text-text-secondary transition-colors duration-200 shrink-0"
                     >
                         zvonimir konjevic
                     </Link>

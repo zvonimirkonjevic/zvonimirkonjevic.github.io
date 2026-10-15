@@ -56,14 +56,14 @@ export function TOC({ source }: { source: string }) {
 
     return (
         <nav className="mb-12 md:hidden">
-            <h2 className="text-sm font-semibold uppercase tracking-wider text-text-secondary mb-3">
+            <h2 className="label mb-3">
                 Table of Contents
             </h2>
             <ul className="space-y-2 text-sm">
                 {headings.map((heading, index) => (
                     <li
                         key={index}
-                        className={`${heading.level === 3 ? "ml-4" : ""} ${activeId === heading.id ? "text-text font-medium" : "text-text-secondary"
+                        className={`${heading.level === 3 ? "ml-4" : ""} ${activeId === heading.id ? "text-text" : "text-text-secondary"
                             } transition-colors duration-200`}
                     >
                         <a href={`#${heading.id}`} className="hover:text-text hover:underline decoration-text-muted underline-offset-2">
@@ -133,7 +133,7 @@ export function SideTOC({ source }: { source: string }) {
 
     return (
         <nav className="sticky top-24 max-h-[calc(100vh-8rem)] overflow-y-auto hidden md:block w-52 pl-4 border-l border-border mt-10">
-            <h2 className="text-xs font-semibold uppercase tracking-wider text-text-secondary mb-4">
+            <h2 className="label mb-4">
                 On this page
             </h2>
             <ul className="space-y-2.5 text-sm">
@@ -144,7 +144,7 @@ export function SideTOC({ source }: { source: string }) {
                     >
                         <a
                             href={`#${heading.id}`}
-                            className={`block leading-snug hover:text-text transition-colors duration-200 ${activeId === heading.id ? "text-text font-medium" : "text-text-muted"
+                            className={`block leading-snug hover:text-text transition-colors duration-200 ${activeId === heading.id ? "text-text" : "text-text-muted"
                                 }`}
                         >
                             {heading.text}
