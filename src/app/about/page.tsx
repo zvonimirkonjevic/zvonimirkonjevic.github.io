@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Fragment } from "react";
 import { MapPin } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -22,6 +23,8 @@ const experience = [
       "Developed end-to-end computer vision and deep learning solutions for Mixed Reality and head-mounted tactical displays.",
   },
 ];
+
+const ownName = "Z. Konjević";
 
 const publications = [
   {
@@ -129,7 +132,14 @@ export default function About() {
               style={{ "--reveal-i": 5 + experience.length + index } as React.CSSProperties}
             >
               <span className="block text-base md:text-lg font-medium leading-snug">{publication.title}</span>
-              <span className="block mt-1 text-sm md:text-base text-text-secondary">{publication.authors}</span>
+              <span className="block mt-1 text-sm md:text-base text-text-secondary">
+                {publication.authors.split(ownName).map((part, i) => (
+                  <Fragment key={i}>
+                    {i > 0 && <strong className="font-semibold text-text">{ownName}</strong>}
+                    {part}
+                  </Fragment>
+                ))}
+              </span>
               <div className="mt-2 flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 sm:gap-4">
                 <span className="text-sm text-text-secondary leading-relaxed">
                   {publication.venue} <span className="text-text-muted">({publication.status})</span>
