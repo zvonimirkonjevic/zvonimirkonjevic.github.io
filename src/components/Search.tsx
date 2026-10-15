@@ -38,7 +38,7 @@ export function Search({ posts }: { posts: SearchPost[] }) {
         <>
             <button
                 onClick={() => setOpen(true)}
-                className="group flex items-center justify-between w-full sm:w-64 px-3 py-2 rounded-lg text-sm text-text-muted hover:text-text bg-surface transition-colors duration-200"
+                className="group hidden sm:flex items-center justify-between w-64 px-3 py-2 rounded-lg text-sm text-text-muted hover:text-text bg-surface transition-colors duration-200"
                 aria-label="Search posts"
             >
                 <div className="flex items-center gap-2">

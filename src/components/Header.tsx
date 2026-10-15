@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ThemeToggle } from "./ThemeToggle";
 import { Search, SearchPost } from "./Search";
+import { MobileNav } from "./MobileNav";
 
 const navLinks = [
     { href: "/about", label: "about" },
@@ -15,7 +16,7 @@ export default function Header({ searchPosts = [] }: { searchPosts?: SearchPost[
 
     return (
         <header className="border-b border-border">
-            <nav className="w-full px-8 md:px-12 h-14 flex items-center justify-between">
+            <nav className="w-full px-6 sm:px-8 md:px-12 h-14 flex items-center justify-between">
                 {pathname.startsWith("/blog/") ? (
                     (() => {
                         const slug = pathname.replace("/blog/", "");
@@ -50,15 +51,17 @@ export default function Header({ searchPosts = [] }: { searchPosts?: SearchPost[
                         <Link
                             key={href}
                             href={href}
-                            className={`text-sm font-medium lowercase transition-colors duration-200 ${
+                            className={`hidden sm:block text-sm font-medium lowercase transition-colors duration-200 ${
                                 pathname.startsWith(href) ? "text-text" : "text-text-secondary hover:text-text"
                             }`}
                         >
                             {label}
                         </Link>
                     ))}
+                    {/* Only the button hides on phones; the dialog stays mounted so ⌘K still works */}
                     <Search posts={searchPosts} />
                     <ThemeToggle />
+                    <MobileNav links={navLinks} pathname={pathname} />
                 </div>
             </nav>
         </header>

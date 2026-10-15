@@ -95,13 +95,13 @@ body {
 /* Search dialog. Radix sets data-state on the overlay and dialog and keeps each mounted until its closing animation ends.
    The blur lives on the overlay, not inside the dialog: an ancestor with opacity < 1 cuts backdrop-filter off from the page,
    so fading a wrapper around the blur would leave nothing to blur until the fade finished */
-@keyframes search-fade-in {
+@keyframes overlay-fade-in {
   from {
     opacity: 0;
   }
 }
 
-@keyframes search-fade-out {
+@keyframes overlay-fade-out {
   to {
     opacity: 0;
   }
@@ -121,12 +121,12 @@ body {
 
 [cmdk-overlay][data-state="open"],
 [cmdk-dialog][data-state="open"] {
-  animation: search-fade-in 0.15s ease-out;
+  animation: overlay-fade-in 0.15s ease-out;
 }
 
 [cmdk-overlay][data-state="closed"],
 [cmdk-dialog][data-state="closed"] {
-  animation: search-fade-out 0.12s ease-in forwards;
+  animation: overlay-fade-out 0.12s ease-in forwards;
 }
 
 [cmdk-dialog][data-state="open"] .search-panel {
@@ -137,7 +137,44 @@ body {
   animation: search-panel-out 0.12s ease-in forwards;
 }
 
+/* Mobile nav sidebar, same data-state mechanism as the search dialog */
+@keyframes slide-in-right {
+  from {
+    transform: translate3d(100%, 0, 0);
+  }
+}
+
+@keyframes slide-out-right {
+  to {
+    transform: translate3d(100%, 0, 0);
+  }
+}
+
+.mobile-nav-overlay[data-state="open"] {
+  animation: overlay-fade-in 0.2s ease-out;
+}
+
+.mobile-nav-overlay[data-state="closed"] {
+  animation: overlay-fade-out 0.18s ease-in forwards;
+}
+
+.mobile-nav[data-state="open"] {
+  animation: slide-in-right 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.mobile-nav[data-state="closed"] {
+  animation: slide-out-right 0.18s ease-in forwards;
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .mobile-nav[data-state="open"] {
+    animation-name: overlay-fade-in;
+  }
+
+  .mobile-nav[data-state="closed"] {
+    animation-name: overlay-fade-out;
+  }
+
   .reveal {
     animation: none;
   }
