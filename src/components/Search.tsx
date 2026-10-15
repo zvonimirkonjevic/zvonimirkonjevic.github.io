@@ -54,11 +54,12 @@ export function Search({ posts }: { posts: SearchPost[] }) {
                 open={open}
                 onOpenChange={setOpen}
                 label="Global Command Menu"
-                className="fixed inset-0 z-[100] flex items-start justify-center pt-[15vh] px-4 sm:px-0 bg-black/40 backdrop-blur-sm transition-all duration-300 animate-in fade-in"
+                overlayClassName="fixed inset-0 z-[100] bg-black/40 backdrop-blur-sm"
+                className="fixed inset-0 z-[100] flex items-start justify-center pt-[15vh] px-4 sm:px-0"
                 onClick={() => setOpen(false)}
             >
                 <div
-                    className="w-full max-w-2xl overflow-hidden rounded-2xl bg-bg border border-border shadow-2xl animate-in zoom-in-[0.98] duration-300"
+                    className="w-full max-w-2xl overflow-hidden rounded-2xl bg-bg border border-border shadow-2xl search-panel"
                     onClick={(e) => e.stopPropagation()}
                 >
                     <DialogTitle className="sr-only">Search Blog Posts</DialogTitle>

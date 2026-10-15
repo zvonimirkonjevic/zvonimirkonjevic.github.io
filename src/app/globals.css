@@ -92,9 +92,59 @@ body {
   opacity: 1;
 }
 
+/* Search dialog. Radix sets data-state on the overlay and dialog and keeps each mounted until its closing animation ends.
+   The blur lives on the overlay, not inside the dialog: an ancestor with opacity < 1 cuts backdrop-filter off from the page,
+   so fading a wrapper around the blur would leave nothing to blur until the fade finished */
+@keyframes search-fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes search-fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes search-panel-in {
+  from {
+    transform: translate3d(0, -6px, 0) scale(0.98);
+  }
+}
+
+@keyframes search-panel-out {
+  to {
+    transform: scale(0.98);
+  }
+}
+
+[cmdk-overlay][data-state="open"],
+[cmdk-dialog][data-state="open"] {
+  animation: search-fade-in 0.15s ease-out;
+}
+
+[cmdk-overlay][data-state="closed"],
+[cmdk-dialog][data-state="closed"] {
+  animation: search-fade-out 0.12s ease-in forwards;
+}
+
+[cmdk-dialog][data-state="open"] .search-panel {
+  animation: search-panel-in 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+[cmdk-dialog][data-state="closed"] .search-panel {
+  animation: search-panel-out 0.12s ease-in forwards;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal {
     animation: none;
+  }
+
+  /* Keep the fade, drop the movement */
+  [cmdk-dialog] .search-panel {
+    animation: none !important;
   }
 }
 
