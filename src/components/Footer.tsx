@@ -31,7 +31,7 @@ export default function Footer() {
                     </a>
 
                     <a
-                        href="https://twitter.com/zvonimirk"
+                        href="https://x.com/zvonimrkonjevic"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="group flex items-center gap-2 text-sm text-text-secondary hover:text-text transition-colors duration-200"
