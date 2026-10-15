@@ -5,6 +5,11 @@ import { usePathname } from "next/navigation";
 import { ThemeToggle } from "./ThemeToggle";
 import { Search, SearchPost } from "./Search";
 
+const navLinks = [
+    { href: "/about", label: "about" },
+    { href: "/projects", label: "projects" },
+];
+
 export default function Header({ searchPosts = [] }: { searchPosts?: SearchPost[] }) {
     const pathname = usePathname();
 
@@ -41,6 +46,17 @@ export default function Header({ searchPosts = [] }: { searchPosts?: SearchPost[
                 )}
 
                 <div className="flex items-center gap-4">
+                    {navLinks.map(({ href, label }) => (
+                        <Link
+                            key={href}
+                            href={href}
+                            className={`text-sm font-medium lowercase transition-colors duration-200 ${
+                                pathname.startsWith(href) ? "text-text" : "text-text-secondary hover:text-text"
+                            }`}
+                        >
+                            {label}
+                        </Link>
+                    ))}
                     <Search posts={searchPosts} />
                     <ThemeToggle />
                 </div>
