@@ -39,7 +39,7 @@ const publications = [
     title:
       "Reading Proliferative State and Tissue Architecture of Prostate Cancer from H&E: A Spatial Graph-Learning Approach",
     authors: "M. Habjan*, Z. Konjević*, et al. (*co-first authors)",
-    venue: "EMBO Young Scientists' Forum, Croatia",
+    venue: "EMBO Scientists' Forum (ESF) 2026",
     status: "Poster, accepted",
     date: "Oct 2026",
   },
