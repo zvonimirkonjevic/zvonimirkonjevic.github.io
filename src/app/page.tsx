@@ -18,7 +18,7 @@ export default function Home() {
             className="reveal text-text-secondary text-base md:text-lg leading-relaxed"
             style={{ "--reveal-i": 1 } as React.CSSProperties}
           >
-            Hello, my name is Zvonimir. I am a <strong className="font-medium text-text">Machine Learning Engineer</strong> at <strong className="font-medium text-text">Intelligentia</strong>, building LLM-based systems, AI agents, and end-to-end ML pipelines for production environments. Before this, I worked on Computer Vision at Vegvisir. On this blog, I write about building AI agents, LLMs, and MLOps.
+            building agentic systems @ <strong className="font-medium text-text">intelligentia</strong>, mostly llm agents, document processing and evaluation pipelines. previously real-time computer vision on edge hardware @ <strong className="font-medium text-text">vegvisir</strong>. in free time tinkering with scalability, distributed systems & ai research, and sharing interesting stuff I learn along the way.
           </p>
         </header>
 
