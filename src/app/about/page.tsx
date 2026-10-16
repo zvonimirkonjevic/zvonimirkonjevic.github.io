@@ -62,18 +62,20 @@ export default function About() {
               style={{ "--reveal-i": 1 } as React.CSSProperties}
             >
               <p>
-                Hi, I&apos;m Zvonimir, an AI Engineer at Intelligentia. I build LLM-based systems for enterprise
-                clients, from document processing pipelines to agents and AI assistants.
+                building agentic systems @ <strong className="font-medium text-text">intelligentia</strong>, mostly
+                llm agents, document processing and evaluation pipelines for enterprise clients.
               </p>
               <p>
-                Most of my work has been for fileAI, a document automation platform for regulated industries, where I
-                worked on its VLM-based OCR pipeline, per-customer fine-tuning and evaluation.
+                most of that work has been for <strong className="font-medium text-text">fileai</strong>, a Singapore-based startup for document automation, on its document processing pipeline, per-customer fine-tuning and agents working on top of processed data.
               </p>
               <p>
-                Before that, I worked on computer vision at Vegvisir, building real-time object detection for Mixed
-                Reality and head-mounted tactical displays on embedded NVIDIA Jetson hardware.
+                previously real-time computer vision on edge hardware @{" "}
+                <strong className="font-medium text-text">vegvisir</strong>, shipping object detection for mixed reality
+                and head-mounted tactical displays on nvidia jetson.
               </p>
-              <p>On this blog, I write about building AI agents, LLMs and MLOps.</p>
+              <p>
+                in free time tinkering with scalability, distributed systems & ai research, lately graph learning for computational pathology, sharing interesting stuff I learn along the way.
+              </p>
             </div>
           </div>
           <div
