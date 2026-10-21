@@ -5,6 +5,7 @@ import { MapPin } from "lucide-react";
 export const metadata: Metadata = {
   title: "about - zvonimir konjevic",
   description: "About Zvonimir Konjevic, Machine Learning Engineer.",
+  alternates: { canonical: "/about" },
 };
 
 const experience = [

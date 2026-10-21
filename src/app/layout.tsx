@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { getAllPosts } from "@/lib/posts";
+import { SITE_URL, AUTHOR_NAME } from "@/lib/site";
 import "./globals.css";
 
 const inter = Inter({
@@ -18,15 +19,23 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
+const description =
+  "building agentic systems @ intelligentia. deep dives into llm inference, agents and distributed systems, sharing interesting stuff I learn along the way.";
+
 export const metadata: Metadata = {
+  // Lets relative canonical, Open Graph and image URLs resolve to absolute ones, which crawlers require
+  metadataBase: new URL(SITE_URL),
   title: "hi, i'm zvonimir konjevic! - zvonimir konjevic",
-  description:
-    "Personal blog of Zvonimir Konjevic. Thoughts on software engineering, technology, and building things.",
+  description,
+  authors: [{ name: AUTHOR_NAME, url: SITE_URL }],
+  // ThemeProvider swaps the favicon client-side, but crawlers only see what's in the static HTML
+  icons: { icon: "/icon-light.svg" },
   openGraph: {
     title: "zvonimir konjevic blog",
-    description:
-      "Personal blog of Zvonimir Konjevic. Thoughts on software engineering, technology, and building things.",
+    description,
     type: "website",
+    siteName: "zvonimir konjevic",
+    locale: "en_US",
   },
 };
 
@@ -43,6 +52,10 @@ export default function RootLayout({
 
   return (
     <html lang="en" className={`${inter.variable} ${geistMono.variable}`} suppressHydrationWarning>
+      {/* Not in metadata.alternates, since each page's canonical would replace it */}
+      <head>
+        <link rel="alternate" type="application/rss+xml" title="zvonimir konjevic blog" href="/feed.xml" />
+      </head>
       <body className="antialiased min-h-screen flex flex-col">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Header searchPosts={posts} />

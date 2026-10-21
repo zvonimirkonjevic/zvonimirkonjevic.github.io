@@ -4,7 +4,9 @@ import { getAllPosts, PostMeta } from "@/lib/posts";
 
 export const metadata: Metadata = {
   title: "posts - zvonimir konjevic",
-  description: "All posts by Zvonimir Konjevic, Machine Learning Engineer.",
+  description:
+    "deep dives into llm inference, agents and distributed systems, mostly things I ran into at work or while tinkering, written up as I learn them.",
+  alternates: { canonical: "/blog" },
 };
 
 // UTC so a post dated at midnight doesn't slip into the previous month on build machines west of Greenwich

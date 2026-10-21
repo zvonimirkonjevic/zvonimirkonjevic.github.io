@@ -4,6 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 export const metadata: Metadata = {
   title: "projects - zvonimir konjevic",
   description: "Projects by Zvonimir Konjevic, Machine Learning Engineer.",
+  alternates: { canonical: "/projects" },
 };
 
 const projects = [

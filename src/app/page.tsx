@@ -1,5 +1,10 @@
 import BlogList from "@/components/BlogList";
 import { getAllPosts } from "@/lib/posts";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 export default function Home() {
   const posts = getAllPosts();
