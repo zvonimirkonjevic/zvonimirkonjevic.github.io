@@ -50,14 +50,16 @@ export default function About() {
   return (
     <div className="max-w-[70rem] mx-auto px-6 md:px-8">
       <div className="md:px-4 lg:px-8 pt-24 md:pt-32 pb-16">
-        <header className="mb-20 max-w-3xl flex flex-col sm:flex-row items-start gap-8 md:gap-10">
-          <div className="flex-1 min-w-0">
-            <h1
-              className="reveal font-heading text-2xl md:text-3xl font-semibold tracking-tight leading-tight mb-4"
-              style={{ "--reveal-i": 0 } as React.CSSProperties}
-            >
-              about
-            </h1>
+        {/* Experience and publications live in the bio's column so all text shares one edge, leaving the photo column empty below.
+            The title gets its own row so the photo lines up with the first line of the bio, not the title. */}
+        <div className="max-w-[52rem] grid sm:grid-cols-[minmax(0,1fr)_auto] sm:gap-x-16 lg:gap-x-24">
+          <h1
+            className="reveal font-heading text-2xl md:text-3xl font-semibold tracking-tight leading-tight mb-4"
+            style={{ "--reveal-i": 0 } as React.CSSProperties}
+          >
+            about
+          </h1>
+          <div className="min-w-0 sm:col-start-1 sm:row-start-2">
             <div
               className="reveal space-y-4 text-text-secondary text-base md:text-lg leading-relaxed"
               style={{ "--reveal-i": 1 } as React.CSSProperties}
@@ -75,12 +77,65 @@ export default function About() {
                 and head-mounted tactical displays.
               </p>
               <p>
-                in free time tinkering with scalability, distributed systems, ai research lately graph learning for computational pathology & sharing interesting stuff I learn along the way.
+                in free time tinkering with scalability, distributed systems & ai research, lately graph learning for computational pathology and sharing interesting stuff I learn along the way.
               </p>
             </div>
+
+            <h2 className="reveal label mt-20 mb-3" style={{ "--reveal-i": 3 } as React.CSSProperties}>
+              Experience
+            </h2>
+            <ul>
+              {experience.map((job, index) => (
+                <li
+                  key={job.company}
+                  className="reveal py-3"
+                  style={{ "--reveal-i": 4 + index } as React.CSSProperties}
+                >
+                  <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
+                    <span className="text-base md:text-lg font-medium leading-snug">
+                      {job.role} <span className="text-text-secondary font-normal">at {job.company}</span>
+                    </span>
+                    <span className="font-mono text-xs text-text-muted shrink-0">{job.period}</span>
+                  </div>
+                  <p className="mt-1.5 text-sm md:text-base text-text-secondary leading-relaxed">{job.description}</p>
+                </li>
+              ))}
+            </ul>
+
+            <h2
+              className="reveal label mt-16 mb-3"
+              style={{ "--reveal-i": 4 + experience.length } as React.CSSProperties}
+            >
+              Publications
+            </h2>
+            <ul>
+              {publications.map((publication, index) => (
+                <li
+                  key={publication.title}
+                  className="reveal py-3"
+                  style={{ "--reveal-i": 5 + experience.length + index } as React.CSSProperties}
+                >
+                  <span className="block text-base md:text-lg font-medium leading-snug">{publication.title}</span>
+                  <span className="block mt-1 text-sm md:text-base text-text-secondary">
+                    {publication.authors.split(ownName).map((part, i) => (
+                      <Fragment key={i}>
+                        {i > 0 && <strong className="font-semibold text-text">{ownName}</strong>}
+                        {part}
+                      </Fragment>
+                    ))}
+                  </span>
+                  <div className="mt-2 flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 sm:gap-4">
+                    <span className="text-sm text-text-secondary leading-relaxed">
+                      {publication.venue} <span className="text-text-muted">({publication.status})</span>
+                    </span>
+                    <span className="font-mono text-xs text-text-muted shrink-0">{publication.date}</span>
+                  </div>
+                </li>
+              ))}
+            </ul>
           </div>
           <div
-            className="reveal order-first sm:order-none shrink-0 flex flex-col sm:items-center gap-4"
+            className="reveal order-first sm:order-none sm:col-start-2 sm:row-start-2 mb-8 sm:mb-0 flex flex-col sm:items-center gap-4"
             style={{ "--reveal-i": 2 } as React.CSSProperties}
           >
             <img
@@ -98,60 +153,7 @@ export default function About() {
               <span className="font-medium">AI Engineer @ Intelligentia</span>
             </div>
           </div>
-        </header>
-
-        <h2 className="reveal label mb-3" style={{ "--reveal-i": 3 } as React.CSSProperties}>
-          Experience
-        </h2>
-        <ul className="max-w-3xl">
-          {experience.map((job, index) => (
-            <li
-              key={job.company}
-              className="reveal py-3"
-              style={{ "--reveal-i": 4 + index } as React.CSSProperties}
-            >
-              <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
-                <span className="text-base md:text-lg font-medium leading-snug">
-                  {job.role} <span className="text-text-secondary font-normal">at {job.company}</span>
-                </span>
-                <span className="font-mono text-xs text-text-muted shrink-0">{job.period}</span>
-              </div>
-              <p className="mt-1.5 text-sm md:text-base text-text-secondary leading-relaxed">{job.description}</p>
-            </li>
-          ))}
-        </ul>
-
-        <h2
-          className="reveal label mt-16 mb-3"
-          style={{ "--reveal-i": 4 + experience.length } as React.CSSProperties}
-        >
-          Publications
-        </h2>
-        <ul className="max-w-3xl">
-          {publications.map((publication, index) => (
-            <li
-              key={publication.title}
-              className="reveal py-3"
-              style={{ "--reveal-i": 5 + experience.length + index } as React.CSSProperties}
-            >
-              <span className="block text-base md:text-lg font-medium leading-snug">{publication.title}</span>
-              <span className="block mt-1 text-sm md:text-base text-text-secondary">
-                {publication.authors.split(ownName).map((part, i) => (
-                  <Fragment key={i}>
-                    {i > 0 && <strong className="font-semibold text-text">{ownName}</strong>}
-                    {part}
-                  </Fragment>
-                ))}
-              </span>
-              <div className="mt-2 flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 sm:gap-4">
-                <span className="text-sm text-text-secondary leading-relaxed">
-                  {publication.venue} <span className="text-text-muted">({publication.status})</span>
-                </span>
-                <span className="font-mono text-xs text-text-muted shrink-0">{publication.date}</span>
-              </div>
-            </li>
-          ))}
-        </ul>
+        </div>
       </div>
     </div>
   );
