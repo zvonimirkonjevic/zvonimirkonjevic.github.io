@@ -72,10 +72,10 @@ export default function About() {
               <p>
                 previously real-time computer vision on edge hardware @{" "}
                 <strong className="font-medium text-text">vegvisir</strong>, shipping object detection for mixed reality
-                and head-mounted tactical displays on nvidia jetson.
+                and head-mounted tactical displays.
               </p>
               <p>
-                in free time tinkering with scalability, distributed systems & ai research, lately graph learning for computational pathology and sharing interesting stuff I learn along the way.
+                in free time tinkering with scalability, distributed systems, ai research lately graph learning for computational pathology & sharing interesting stuff I learn along the way.
               </p>
             </div>
           </div>
