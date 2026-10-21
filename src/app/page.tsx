@@ -23,7 +23,7 @@ export default function Home() {
             className="reveal text-text-secondary text-base md:text-lg leading-relaxed"
             style={{ "--reveal-i": 1 } as React.CSSProperties}
           >
-            building agentic systems @ <strong className="font-medium text-text">intelligentia</strong>, mostly llm agents, document processing and evaluation pipelines. previously real-time computer vision on edge hardware @ <strong className="font-medium text-text">vegvisir</strong>. in free time tinkering with scalability, distributed systems & ai research, and sharing interesting stuff I learn along the way.
+            building agentic systems @ <strong className="font-medium text-text">intelligentia</strong>, mostly llm agents, document processing and evaluation pipelines. previously real-time computer vision on edge hardware @ <strong className="font-medium text-text">vegvisir</strong>. in free time tinkering with scalability, distributed systems & ai research and sharing interesting stuff I learn along the way.
           </p>
         </header>
 
