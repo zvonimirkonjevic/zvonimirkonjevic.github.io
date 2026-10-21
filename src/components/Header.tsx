@@ -7,6 +7,7 @@ import { Search, SearchPost } from "./Search";
 import { MobileNav } from "./MobileNav";
 
 const navLinks = [
+    { href: "/blog", label: "posts" },
     { href: "/about", label: "about" },
     { href: "/projects", label: "projects" },
 ];
