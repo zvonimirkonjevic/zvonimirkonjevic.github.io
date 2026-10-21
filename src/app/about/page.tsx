@@ -81,7 +81,7 @@ export default function About() {
               </p>
             </div>
 
-            <h2 className="reveal label mt-20 mb-3" style={{ "--reveal-i": 3 } as React.CSSProperties}>
+            <h2 className="reveal label mt-20 mb-3 flex items-center gap-4 after:flex-1 after:h-px after:bg-border" style={{ "--reveal-i": 3 } as React.CSSProperties}>
               Experience
             </h2>
             <ul>
@@ -103,7 +103,7 @@ export default function About() {
             </ul>
 
             <h2
-              className="reveal label mt-16 mb-3"
+              className="reveal label mt-16 mb-3 flex items-center gap-4 after:flex-1 after:h-px after:bg-border"
               style={{ "--reveal-i": 4 + experience.length } as React.CSSProperties}
             >
               Publications
