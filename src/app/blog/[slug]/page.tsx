@@ -4,6 +4,7 @@ import { getPostBySlug, getAllSlugs } from "@/lib/posts";
 import PostBody from "@/components/PostBody";
 import { TOC, SideTOC } from "@/components/TOC";
 import { ScrollProgress } from "@/components/ScrollProgress";
+import { SITE_URL, AUTHOR_NAME } from "@/lib/site";
 import type { Metadata } from "next";
 
 interface PageProps {
@@ -26,13 +27,21 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     if (!post) return {};
 
     return {
-        title: `${post.title} — zvonimir konjevic blog`,
+        title: `${post.title} - zvonimir konjevic`,
         description: post.description,
+        keywords: post.tags,
+        alternates: { canonical: `/blog/${slug}` },
         openGraph: {
             title: post.title,
             description: post.description,
             type: "article",
+            url: `/blog/${slug}`,
+            // Child openGraph replaces the layout's wholesale, so siteName must be repeated
+            siteName: "zvonimir konjevic",
             publishedTime: post.date,
+            authors: [AUTHOR_NAME],
+            tags: post.tags,
+            ...(post.cover && { images: [post.cover] }),
         },
     };
 }
@@ -47,8 +56,27 @@ export default async function BlogPost({ params }: PageProps) {
 
     if (!post) notFound();
 
+    // Structured data lets search engines show the date and author in results instead of guessing them from the page
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        headline: post.title,
+        description: post.description,
+        datePublished: post.date,
+        url: `${SITE_URL}/blog/${slug}`,
+        mainEntityOfPage: `${SITE_URL}/blog/${slug}`,
+        keywords: post.tags.join(", "),
+        author: { "@type": "Person", name: AUTHOR_NAME, url: `${SITE_URL}/about` },
+        ...(post.cover && { image: `${SITE_URL}${post.cover}` }),
+    };
+
     return (
         <>
+            <script
+                type="application/ld+json"
+                // Escape "<" so post text can never close the script tag early
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+            />
             <ScrollProgress />
             <div className="max-w-[70rem] mx-auto px-6 md:px-8 flex flex-col md:flex-row gap-8 lg:gap-16">
 
@@ -56,12 +84,14 @@ export default async function BlogPost({ params }: PageProps) {
                     {/* Post header */}
                     <header className="mb-10 md:mb-12">
                         <div className="reveal label font-mono text-xs mb-4" style={{ "--reveal-i": 0 } as React.CSSProperties}>
-                            {new Date(post.date).toLocaleDateString("en-US", {
-                                year: "numeric",
-                                month: "long",
-                                day: "numeric",
-                                timeZone: "UTC",
-                            })}
+                            <time dateTime={post.date}>
+                                {new Date(post.date).toLocaleDateString("en-US", {
+                                    year: "numeric",
+                                    month: "long",
+                                    day: "numeric",
+                                    timeZone: "UTC",
+                                })}
+                            </time>
                             {" · "}
                             {post.readingTime}
                         </div>
