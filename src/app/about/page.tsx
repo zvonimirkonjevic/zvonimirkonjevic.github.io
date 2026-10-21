@@ -74,7 +74,7 @@ export default function About() {
                 and head-mounted tactical displays on nvidia jetson.
               </p>
               <p>
-                in free time tinkering with scalability, distributed systems & ai research, lately graph learning for computational pathology, sharing interesting stuff I learn along the way.
+                in free time tinkering with scalability, distributed systems & ai research, lately graph learning for computational pathology and sharing interesting stuff I learn along the way.
               </p>
             </div>
           </div>
