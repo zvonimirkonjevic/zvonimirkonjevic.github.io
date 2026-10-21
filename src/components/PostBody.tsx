@@ -50,7 +50,7 @@ const components = {
     hr: () => <hr className="border-border my-10" />,
     img: (props: React.ComponentProps<"img">) => (
         // eslint-disable-next-line @next/next/no-img-element
-        <img className="rounded-md border border-border my-6 w-full" alt={props.alt || ""} {...props} />
+        <img className="rounded-md my-6 w-full" alt={props.alt || ""} {...props} />
     ),
     strong: (props: React.ComponentProps<"strong">) => (
         <strong className="font-semibold" {...props} />
