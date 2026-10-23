@@ -291,9 +291,10 @@ body {
   margin: 1.5rem 0;
 }
 
-/* Code shares the --surface background with the global selection, so it needs its own highlight to stay visible */
+/* Code and callouts share the --surface background with the global selection, so they need their own highlight to stay visible */
 .prose pre ::selection,
-.prose code::selection {
+.prose code::selection,
+.prose blockquote ::selection {
   background: color-mix(in srgb, var(--text-muted) 35%, transparent);
 }
 
