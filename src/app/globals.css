@@ -250,12 +250,19 @@ body {
   font-weight: 600;
 }
 
+/* Styled as a callout box (posts use blockquotes for asides, not quotations) */
 .prose blockquote {
-  border-left: 2px solid var(--border);
-  padding-left: 1.25rem;
-  margin: 1.5rem 0;
-  color: var(--text-secondary);
-  font-style: italic;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--text-muted);
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  margin: 1.75rem 0;
+  color: var(--text);
+}
+
+.prose blockquote > :last-child {
+  margin-bottom: 0;
 }
 
 .prose ul,

@@ -24,12 +24,6 @@ const components = {
             {...props}
         />
     ),
-    blockquote: (props: React.ComponentProps<"blockquote">) => (
-        <blockquote
-            className="border-l-2 border-text pl-5 my-6 text-text-secondary italic"
-            {...props}
-        />
-    ),
     ul: (props: React.ComponentProps<"ul">) => (
         <ul className="list-disc pl-6 mb-5 space-y-1.5" {...props} />
     ),
