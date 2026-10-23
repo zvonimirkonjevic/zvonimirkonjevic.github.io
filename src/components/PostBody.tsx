@@ -1,6 +1,7 @@
 import { MDXRemote } from "next-mdx-remote/rsc";
 import rehypePrettyCode from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
+import remarkGfm from "remark-gfm";
 
 const components = {
     h1: (props: React.ComponentProps<"h1">) => (
@@ -80,6 +81,7 @@ export default function PostBody({ content }: PostBodyProps) {
                 components={components}
                 options={{
                     mdxOptions: {
+                        remarkPlugins: [remarkGfm],
                         rehypePlugins: [
                             rehypeSlug,
                             [
