@@ -284,6 +284,12 @@ body {
   margin: 1.5rem 0;
 }
 
+/* Code shares the --surface background with the global selection, so it needs its own highlight to stay visible */
+.prose pre ::selection,
+.prose code::selection {
+  background: color-mix(in srgb, var(--text-muted) 35%, transparent);
+}
+
 .prose pre code {
   background: none;
   padding: 0;
