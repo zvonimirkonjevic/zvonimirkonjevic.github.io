@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Fragment } from "react";
-import { MapPin } from "lucide-react";
+import { ArrowUpRight, MapPin } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "about - zvonimir konjevic",
@@ -151,6 +151,18 @@ export default function About() {
                 Osijek, Croatia
               </span>
               <span className="font-medium">AI Engineer @ Intelligentia</span>
+              <a
+                href="https://drive.google.com/file/d/1xpXYAMJ4TPe4yioSq7qYNKquetFbSKQ7/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group mt-1 inline-flex items-center gap-1 text-text-secondary hover:text-text transition-colors duration-200"
+              >
+                CV
+                <ArrowUpRight
+                  aria-hidden="true"
+                  className="w-3.5 h-3.5 text-text-muted group-hover:text-text transition-colors duration-200"
+                />
+              </a>
             </div>
           </div>
         </div>
